@@ -1,0 +1,16 @@
+.conteneur {
+	-fx-border-width:10;
+}
+#vue-racine {
+	-fx-border-color:darkred;
+	-fx-background-color: black;
+}
+.gros-bouton {
+	-fx-cursor: hand;
+}
+#bouton-retour {
+    -fx-background-color: linear-gradient(#ff5400, #be1d00);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+	fx:controller="frontal.vues.VueInterieur"
+	styleClass="conteneur"
+	id="vue-interieur">	
+
+	<Button text="%ouvrirRetour"
+	styleClass="gros-bouton"
+	id="bouton-retour">
+	</Button>
+
+	<ImageView>
+		<image>
+			<Image url="@logo.jpg"/>
+		</image>
+	</ImageView>
+
+</VBox>
+
+
