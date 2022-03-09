@@ -8,10 +8,9 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.window;
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
-import frontal.vues.VueInterieur;
 import frontal.vues.VueRacine;
-import frontal.vues.VueInterieur;
-import frontal.vues.VueInterieur;
+import frontal.vues.VueFileAttente;
+
 
 
 public class Initialisation {
@@ -47,15 +46,18 @@ public class Initialisation {
 			});
 	}
 	public static void creerTaches(FrontendTasks tasks) {
-		afficherFenetre(tasks);
 		
-		creerVueRacine(tasks);
-		creerVueInterieur(tasks);
-		
-		
-		installerVueRacine(tasks);
-		installerVueInterieur(tasks);
-		
+		tasks.taskGroup("Initialisation")
+			.contains(subTasks -> {
+				
+				afficherFenetre(subTasks);
+				
+				creerVueRacine(subTasks);
+				creerVueFileAttente(subTasks);
+				
+				installerVueRacine(subTasks);
+				installerVueFileAttente(subTasks);
+			});
 		
 	}	
 	
@@ -73,34 +75,34 @@ public class Initialisation {
 			});	
 		
 	}
-	private static void installerVueInterieur(FrontendTasks tasks) {
-		tasks.task("installerVueInterieur")
+	private static void installerVueFileAttente(FrontendTasks tasks) {
+		tasks.task("installerVueFileAttente")
 		
 			.waitsFor(created(VueRacine.class))
 			
 			
-			.waitsFor(created(VueInterieur.class))
+			.waitsFor(created(VueFileAttente.class))
 			
 			.thenExecutes(inputs ->{
 				
 				VueRacine vueRacine = inputs.get(created(VueRacine.class));
-				VueInterieur vueInterieur = inputs.get(created(VueInterieur.class));
+				VueFileAttente vueFileAttente = inputs.get(created(VueFileAttente.class));
 				
-				vueRacine.afficherSousVue(vueInterieur);
+				vueRacine.afficherSousVue(vueFileAttente);
 			});
 	}
-	private static void creerVueInterieur(FrontendTasks tasks) {
-		tasks.task(create(VueInterieur.class))
+	private static void creerVueFileAttente(FrontendTasks tasks) {
+		tasks.task(create(VueFileAttente.class))
 		
-			.waitsFor(viewLoader(VueInterieur.class))
+			.waitsFor(viewLoader(VueFileAttente.class))
 			
 			.thenExecutesAndReturnsValue(inputs -> {
 				
-				ViewLoader<VueInterieur> viewLoader = inputs.get(viewLoader(VueInterieur.class));
+				ViewLoader<VueFileAttente> viewLoader = inputs.get(viewLoader(VueFileAttente.class));
 				
-				VueInterieur vueInterieur = viewLoader.createView();
+				VueFileAttente vueFileAttente = viewLoader.createView();
 				
-				return vueInterieur;
+				return vueFileAttente;
 			});
 	}
 	

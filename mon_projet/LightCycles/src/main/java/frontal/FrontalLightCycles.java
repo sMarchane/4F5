@@ -7,7 +7,11 @@ import ca.ntro.app.frontend.ViewRegistrarFx;
 import ca.ntro.app.frontend.events.EventRegistrar;
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
+import frontal.evenements.EvtAfficherFileAttente;
+import frontal.evenements.EvtAfficherVueInterieur;
 import frontal.taches.Initialisation;
+import frontal.taches.Navigation;
+import frontal.vues.VueFileAttente;
 import frontal.vues.VueInterieur;
 import frontal.vues.VueRacine;
 
@@ -18,6 +22,7 @@ public class FrontalLightCycles implements FrontendFx{
 	public void createTasks(FrontendTasks tasks) {
 
 		Initialisation.creerTaches(tasks);
+		Navigation.creerTaches(tasks);
 	}
 
 	@Override
@@ -29,6 +34,8 @@ public class FrontalLightCycles implements FrontendFx{
 	@Override
 	public void registerEvents(EventRegistrar registrar) {
 		
+		registrar.registerEvent(EvtAfficherFileAttente.class);
+		registrar.registerEvent(EvtAfficherVueInterieur.class);
 		
 	}
 
@@ -39,6 +46,8 @@ public class FrontalLightCycles implements FrontendFx{
 		registrar.registerView(VueRacine.class, "/racine.xml");
 		
 		registrar.registerView(VueInterieur.class, "/Vue_interieur.xml");
+		
+		registrar.registerView(VueFileAttente.class, "/file_attente.xml");
 		
 		registrar.registerStylesheet("/LightCycles.css");
 		

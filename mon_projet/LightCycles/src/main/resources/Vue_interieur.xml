@@ -15,11 +15,26 @@
 	id="bouton-retour">
 	</Button>
 
+	<Text
+		text="%ParametreTouches"
+		styleClass="titre-page"
+		id="titre">
+	</Text>
+
+
 	<ImageView>
 		<image>
 			<Image url="@logo.jpg"/>
 		</image>
 	</ImageView>
+
+	<Button
+		fx:id="boutonQuitterPartie"
+		text="%quitterPartie"
+		styleClass="gros-bouton"
+		id="boutonQuitterPartie">
+	</Button>
+
 
 </VBox>
 

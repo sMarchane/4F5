@@ -4,6 +4,7 @@
 #vue-racine {
 	-fx-border-color:darkred;
 	-fx-background-color: black;
+	-fx-alignment: center;
 }
 .gros-bouton {
 	-fx-cursor: hand;
@@ -13,4 +14,17 @@
     -fx-background-radius: 30;
     -fx-background-insets: 0;
     -fx-text-fill: white;
+}
+
+.titre-page {
+	-fx-fill: white;
+	-fx-font-size: 2.5em;
+}
+
+#titre {
+	
+	
+}
+#vue-file-attente {
+	-fx-border-color:darkblue;
 }
