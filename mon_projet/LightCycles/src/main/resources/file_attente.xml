@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.ImageView?>
@@ -12,10 +11,10 @@
 	
 
 	<Button 
-		fx:id="boutonParametre"
-		text="%ouvrirParametre"
+		fx:id="boutonMaPage"
+		text="%ouvrirPageTouche"
 		styleClass="gros-bouton"
-		id="bouton-ouvrir-parametre">
+		id="bouton-ma-page">
 	</Button>
 
 </VBox>

@@ -10,6 +10,7 @@ import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import frontal.vues.VueRacine;
 import frontal.vues.VueFileAttente;
+import frontal.vues.VueInterieur;
 
 
 
@@ -53,10 +54,10 @@ public class Initialisation {
 				afficherFenetre(subTasks);
 				
 				creerVueRacine(subTasks);
-				creerVueFileAttente(subTasks);
+				creerVueInterieur(subTasks);
 				
 				installerVueRacine(subTasks);
-				installerVueFileAttente(subTasks);
+				installerVueInterieur(subTasks);
 			});
 		
 	}	
@@ -75,34 +76,34 @@ public class Initialisation {
 			});	
 		
 	}
-	private static void installerVueFileAttente(FrontendTasks tasks) {
-		tasks.task("installerVueFileAttente")
+	private static void installerVueInterieur(FrontendTasks tasks) {
+		tasks.task("installerVueInterieur")
 		
 			.waitsFor(created(VueRacine.class))
 			
 			
-			.waitsFor(created(VueFileAttente.class))
+			.waitsFor(created(VueInterieur.class))
 			
 			.thenExecutes(inputs ->{
 				
 				VueRacine vueRacine = inputs.get(created(VueRacine.class));
-				VueFileAttente vueFileAttente = inputs.get(created(VueFileAttente.class));
+				VueInterieur vueInterieur = inputs.get(created(VueInterieur.class));
 				
-				vueRacine.afficherSousVue(vueFileAttente);
+				vueRacine.afficherSousVue(vueInterieur);
 			});
 	}
-	private static void creerVueFileAttente(FrontendTasks tasks) {
-		tasks.task(create(VueFileAttente.class))
+	private static void creerVueInterieur(FrontendTasks tasks) {
+		tasks.task(create(VueInterieur.class))
 		
-			.waitsFor(viewLoader(VueFileAttente.class))
+			.waitsFor(viewLoader(VueInterieur.class))
 			
 			.thenExecutesAndReturnsValue(inputs -> {
 				
-				ViewLoader<VueFileAttente> viewLoader = inputs.get(viewLoader(VueFileAttente.class));
+				ViewLoader<VueInterieur> viewLoader = inputs.get(viewLoader(VueInterieur.class));
 				
-				VueFileAttente vueFileAttente = viewLoader.createView();
+				VueInterieur vueInterieur = viewLoader.createView();
 				
-				return vueFileAttente;
+				return vueInterieur;
 			});
 	}
 	

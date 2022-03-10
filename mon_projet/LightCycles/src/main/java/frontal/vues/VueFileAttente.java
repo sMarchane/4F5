@@ -14,11 +14,11 @@ import javafx.scene.control.Button;
 public class VueFileAttente extends ViewFx{
 
 	@FXML
-	private Button boutonParametre;
+	private Button boutonMaPage;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		Ntro.assertNotNull("boutonParametre", boutonParametre);
+		Ntro.assertNotNull("boutonMaPage", boutonMaPage);
 		installerEvtAfficherVueInterieur();		
 	}
 
@@ -27,7 +27,7 @@ public class VueFileAttente extends ViewFx{
 		
 		EvtAfficherVueInterieur evtNtro = NtroApp.newEvent(EvtAfficherVueInterieur.class);
 		
-		boutonParametre.setOnAction(evtFx -> {
+		boutonMaPage.setOnAction(evtFx -> {
 			
 			//System.out.println("[VueFileAttente] clic:" + evtFx.getEventType());
 			

@@ -20,48 +20,34 @@ public class Navigation {
 			.andContains(subTasks -> {
 				
 				
-				  afficherVueFileAttente(subTasks);
-				  creerVueInterieur(subTasks);
 				  afficherVueInterieur(subTasks);
+				  creerVueFileAttente(subTasks);
+				  afficherVueFileAttente(subTasks);
 				 
 				 
 			});
 	}
-	private static void creerVueInterieur(FrontendTasks tasks) {
-		tasks.task(create(VueInterieur.class))
+	private static void creerVueFileAttente(FrontendTasks tasks) {
+		tasks.task(create(VueFileAttente.class))
 		
-			.waitsFor(viewLoader(VueInterieur.class))
+			.waitsFor(viewLoader(VueFileAttente.class))
 			
 			.thenExecutesAndReturnsValue(inputs -> {
 				
-				ViewLoader<VueInterieur> viewLoader = inputs.get(viewLoader(VueInterieur.class));
+				ViewLoader<VueFileAttente> viewLoader = inputs.get(viewLoader(VueFileAttente.class));
 				
-				VueInterieur vueInterieur = viewLoader.createView();
+				VueFileAttente vueFileAttente = viewLoader.createView();
 				
-				return vueInterieur;
+				return vueFileAttente;
 			});
 	}	
-	private static void afficherVueInterieur(FrontendTasks tasks) {
-		tasks.task("afficherVueInterieur")
-		
-			.waitsFor(created(VueInterieur.class))
-			
-			
-			.waitsFor(event(EvtAfficherVueInterieur.class))
-			
-			.thenExecutes(inputs ->{
-				
-				VueRacine vueRacine = inputs.get(created(VueRacine.class));
-				VueInterieur vueInterieur = inputs.get(created(VueInterieur.class));
-				
-				vueRacine.afficherSousVue(vueInterieur);
-			});
-	}
 	private static void afficherVueFileAttente(FrontendTasks tasks) {
 		tasks.task("afficherVueFileAttente")
 		
-		.waitsFor(event(EvtAfficherFileAttente.class))
+			.waitsFor(created(VueFileAttente.class))
 			
+			
+			.waitsFor(event(EvtAfficherFileAttente.class))
 			
 			.thenExecutes(inputs ->{
 				
@@ -69,6 +55,20 @@ public class Navigation {
 				VueFileAttente vueFileAttente = inputs.get(created(VueFileAttente.class));
 				
 				vueRacine.afficherSousVue(vueFileAttente);
+			});
+	}
+	private static void afficherVueInterieur(FrontendTasks tasks) {
+		tasks.task("afficherVueInterieur")
+		
+		.waitsFor(event(EvtAfficherVueInterieur.class))
+			
+			
+			.thenExecutes(inputs ->{
+				
+				VueRacine vueRacine = inputs.get(created(VueRacine.class));
+				VueInterieur vueInterieur = inputs.get(created(VueInterieur.class));
+				
+				vueRacine.afficherSousVue(vueInterieur);
 			});
 	}
 

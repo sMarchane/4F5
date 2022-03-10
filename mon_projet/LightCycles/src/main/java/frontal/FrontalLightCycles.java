@@ -34,8 +34,9 @@ public class FrontalLightCycles implements FrontendFx{
 	@Override
 	public void registerEvents(EventRegistrar registrar) {
 		
-		registrar.registerEvent(EvtAfficherFileAttente.class);
+		
 		registrar.registerEvent(EvtAfficherVueInterieur.class);
+		registrar.registerEvent(EvtAfficherFileAttente.class);
 		
 	}
 

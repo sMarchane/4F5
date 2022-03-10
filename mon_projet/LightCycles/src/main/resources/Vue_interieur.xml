@@ -29,13 +29,11 @@
 	</ImageView>
 
 	<Button
-		fx:id="boutonQuitterPartie"
-		text="%quitterPartie"
+		fx:id="boutonFileAttente"
+		text="%fileAttente"
 		styleClass="gros-bouton"
-		id="boutonQuitterPartie">
+		id="boutonFileAttente">
 	</Button>
 
 
 </VBox>
-
-

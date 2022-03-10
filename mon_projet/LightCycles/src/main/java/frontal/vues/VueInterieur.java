@@ -13,12 +13,12 @@ import javafx.scene.control.Button;
 public class VueInterieur extends ViewFx{
 
 	@FXML
-	private Button boutonQuitterPartie;
+	private Button boutonFileAttente;
 
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		Ntro.assertNotNull("boutonQuitterPartie", boutonQuitterPartie);
+		Ntro.assertNotNull("boutonFileAttente", boutonFileAttente);
 		
 		
 		installerEvtAfficherFileAttente();
@@ -27,7 +27,7 @@ public class VueInterieur extends ViewFx{
 		
 		EvtAfficherFileAttente evtNtro = NtroApp.newEvent(EvtAfficherFileAttente.class);
 		
-		boutonQuitterPartie.setOnAction(evtFx -> {
+		boutonFileAttente.setOnAction(evtFx -> {
 			
 			//System.out.println("[VueFileAttente] clic: " + evtFx.getEventType());
 			
