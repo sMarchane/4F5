@@ -4,6 +4,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Label?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
 	fx:controller="frontal.vues.VueInterieur"
@@ -42,5 +43,11 @@
 		id="boutonAjouterTouchePerso">
 	</Button>
 
+	<Label
+		fx:id="labelMessage"
+		styleClass="texte"
+		id="label-message"
+		text="[labelMessage]">
+	</Label>
 
 </VBox>

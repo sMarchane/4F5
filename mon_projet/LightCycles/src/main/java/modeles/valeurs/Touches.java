@@ -10,7 +10,20 @@ public class Touches implements Value{
 	private String toucheLeft;
 	private String toucheRight;
 	private String toucheBoost;
+		
 	
+	public Touches() {
+		
+	}
+	public Touches(String idTouche, String pseudoPremierJoueur) {
+		setIdTouchePerso(idTouche);
+		setPseudoJoueur(pseudoPremierJoueur);
+			
+	}
+	
+	public String toString() {
+		return pseudoJoueur;
+	}
 	public String getToucheFront() {
 		return toucheFront;
 	}
@@ -69,12 +82,5 @@ public class Touches implements Value{
 	public void setPseudoJoueur(String pseudoJoueur) {
 		this.pseudoJoueur = pseudoJoueur;
 	}
-
-
-	public Touches() {
 		
-		
-	}
-	
-	
 }

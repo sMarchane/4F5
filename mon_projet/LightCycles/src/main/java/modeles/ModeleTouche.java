@@ -7,6 +7,7 @@ import java.util.List;
 
 import ca.ntro.app.models.Model;
 import ca.ntro.app.models.Value;
+import frontal.vues.VueInterieur;
 import modeles.valeurs.Touches;
 
 public class ModeleTouche implements Model{
@@ -34,7 +35,6 @@ public class ModeleTouche implements Model{
 	public ModeleTouche() {
 		
 	}
-	
 	public void initialiser() {
 		Date maintenant = new Date();
 		dateSauvegardeTouche = maintenant.getTime();
@@ -57,29 +57,26 @@ public class ModeleTouche implements Model{
 		return idTouche;
 	}
 	
-	public class Touches implements Value {
-		private String idTouche;
-		private String pseudoPremierJoueur;
+	
+	public void afficherSur(VueInterieur vueInterieur) {
+		vueInterieur.afficherMessage(this.toString());
+	}
+	
+	@Override
+	public String toString() {
 		
+		StringBuilder builder = new StringBuilder();
+		int numTouche = 1;
 		
-		public Touches() {
+		for(Touches touche : lesTouchesPerso) {
+			builder.append(numTouche);
+			builder.append(". ");
+			builder.append(touche.toString());
+			builder.append("\n");
 			
+			numTouche++;
 		}
 		
-		public Touches(String idTouche, String pseudoPremierJoueur) {
-			setIdTouche(idTouche);
-			setPseudoPremierJoueur(pseudoPremierJoueur);
-			
-		}
-	}
-
-	public void setIdTouche(String idTouche) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void setPseudoPremierJoueur(String pseudoPremierJoueur) {
-		// TODO Auto-generated method stub
-		
+		return builder.toString();
 	}
 }

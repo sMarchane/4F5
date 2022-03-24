@@ -1,6 +1,6 @@
 package frontal.taches;
 
-import ca.ntro.app.tasks.frontend.FrontendTasks.*;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
 
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import ca.ntro.core.reflection.observer.Modified;
@@ -16,23 +16,25 @@ public class AfficherVueInterieur {
 			.waitsFor("Initialisation")
 			
 			.andContains(subTasks -> {
-				afficherVueInterieur(subTasks);
+				afficherTouche(subTasks);
 			});
 	}
 	
-	private static void afficherVueInterieur(FrontendTasks tasks) {
+	private static void afficherTouche(FrontendTasks tasks) {
 		
-		tasks.task("afficherVueInterieur")
+		tasks.task("afficherTouche")
 		
 			.waitsFor(modified(ModeleTouche.class))
 		
 			.executes(inputs -> {
 				
 				VueInterieur vueInterieur = inputs.get(created(VueInterieur.class));
-				Modified<ModelTouche> touche = inputs.get(modified(ModeleTouche.class));
+				Modified<ModeleTouche> touche = inputs.get(modified(ModeleTouche.class));
 				
 				ModeleTouche ancienFile = touche.previousValue();
 				ModeleTouche fileCourante = touche.currentValue();
+				
+				fileCourante.afficherSur(vueInterieur);
 			});
 	}
 	

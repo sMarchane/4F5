@@ -10,7 +10,11 @@ import ca.ntro.core.initialization.Ntro;
 import frontal.evenements.EvtAfficherFileAttente;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import messages.MsgAjouterTouchePerso;
+import modeles.ModeleTouche;
+import modeles.valeurs.Touches;
+
 
 public class VueInterieur extends ViewFx{
 
@@ -20,7 +24,9 @@ public class VueInterieur extends ViewFx{
 	@FXML
 	private Button  boutonAjouterTouchePerso;
 
-
+	@FXML
+	private Label labelMessage;
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Ntro.assertNotNull("boutonFileAttente", boutonFileAttente);
@@ -30,6 +36,8 @@ public class VueInterieur extends ViewFx{
 		
 		Ntro.assertNotNull("boutonAjouterTouchePerso", boutonAjouterTouchePerso);
 		installerMsgAjouterTouchePerso();
+		
+		Ntro.assertNotNull("labelMessage", labelMessage);
 	}
 	private void installerEvtAfficherFileAttente() {
 		
@@ -67,5 +75,9 @@ public class VueInterieur extends ViewFx{
 											  "Zeyrox123",
 											  "Raven2020");
 		return Ntro.random().choice(choixDesPseudo);
+	}
+	
+	public void afficherMessage(String message) {
+		labelMessage.setText(message);
 	}
 }
