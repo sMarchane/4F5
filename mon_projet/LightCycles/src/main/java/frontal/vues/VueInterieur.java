@@ -1,6 +1,7 @@
 package frontal.vues;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import ca.ntro.app.NtroApp;
@@ -9,11 +10,15 @@ import ca.ntro.core.initialization.Ntro;
 import frontal.evenements.EvtAfficherFileAttente;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import messages.MsgAjouterTouchePerso;
 
 public class VueInterieur extends ViewFx{
 
 	@FXML
 	private Button boutonFileAttente;
+
+	@FXML
+	private Button  boutonAjouterTouchePerso;
 
 
 	@Override
@@ -22,6 +27,9 @@ public class VueInterieur extends ViewFx{
 		
 		
 		installerEvtAfficherFileAttente();
+		
+		Ntro.assertNotNull("boutonAjouterTouchePerso", boutonAjouterTouchePerso);
+		installerMsgAjouterTouchePerso();
 	}
 	private void installerEvtAfficherFileAttente() {
 		
@@ -35,4 +43,29 @@ public class VueInterieur extends ViewFx{
 		});
 	}
 	
+	private void installerMsgAjouterTouchePerso() {
+		MsgAjouterTouchePerso msgAjouterTouchePerso = NtroApp.newMessage(MsgAjouterTouchePerso.class);
+		
+		boutonAjouterTouchePerso.setOnAction(evtFx -> {
+			
+			
+			msgAjouterTouchePerso.setPseudoPremierJoueur(nomAleatoire());
+			msgAjouterTouchePerso.send();
+		});
+		
+	}
+	
+	
+	
+	private String nomAleatoire() {
+		List<String> choixDesPseudo = List.of("Srocma17",
+											  "GamingBoy2002",
+											  "Gregpower",
+											  "Drazox1999",
+											  "SavageBlood",
+											  "Kruxx",
+											  "Zeyrox123",
+											  "Raven2020");
+		return Ntro.random().choice(choixDesPseudo);
+	}
 }

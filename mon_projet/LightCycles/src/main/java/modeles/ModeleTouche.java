@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import ca.ntro.app.models.Model;
+import ca.ntro.app.models.Value;
 import modeles.valeurs.Touches;
 
 public class ModeleTouche implements Model{
@@ -39,5 +40,46 @@ public class ModeleTouche implements Model{
 		dateSauvegardeTouche = maintenant.getTime();
 		
 		System.out.println("[ModeleTouche] " + new SimpleDateFormat("EEEE dd MMMM, HH:mm").format(maintenant));
+	}
+	public void ajouterTouchePerso(String pseudoPremierJoueur) {
+		
+		String idTouche = genererIdTouche();
+		
+		Touches touche = new Touches(idTouche, pseudoPremierJoueur);
+		
+		lesTouchesPerso.add(touche);
+	}
+	private String genererIdTouche() {
+		String idTouche = String.valueOf(dateSauvegardeTouche);
+		
+		dateSauvegardeTouche++;
+		
+		return idTouche;
+	}
+	
+	public class Touches implements Value {
+		private String idTouche;
+		private String pseudoPremierJoueur;
+		
+		
+		public Touches() {
+			
+		}
+		
+		public Touches(String idTouche, String pseudoPremierJoueur) {
+			setIdTouche(idTouche);
+			setPseudoPremierJoueur(pseudoPremierJoueur);
+			
+		}
+	}
+
+	public void setIdTouche(String idTouche) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setPseudoPremierJoueur(String pseudoPremierJoueur) {
+		// TODO Auto-generated method stub
+		
 	}
 }

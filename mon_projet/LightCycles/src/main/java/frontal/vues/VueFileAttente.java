@@ -16,10 +16,13 @@ public class VueFileAttente extends ViewFx{
 	@FXML
 	private Button boutonMaPage;
 
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Ntro.assertNotNull("boutonMaPage", boutonMaPage);
-		installerEvtAfficherVueInterieur();		
+		installerEvtAfficherVueInterieur();
+		
+		
 	}
 
 	private void installerEvtAfficherVueInterieur() {

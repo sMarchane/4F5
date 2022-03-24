@@ -9,6 +9,7 @@ import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import frontal.evenements.EvtAfficherFileAttente;
 import frontal.evenements.EvtAfficherVueInterieur;
+import frontal.taches.AfficherVueInterieur;
 import frontal.taches.Initialisation;
 import frontal.taches.Navigation;
 import frontal.vues.VueFileAttente;
@@ -23,6 +24,8 @@ public class FrontalLightCycles implements FrontendFx{
 
 		Initialisation.creerTaches(tasks);
 		Navigation.creerTaches(tasks);
+		
+		AfficherVueInterieur.creerTaches(tasks);
 	}
 
 	@Override

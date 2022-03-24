@@ -35,5 +35,12 @@
 		id="boutonFileAttente">
 	</Button>
 
+	<Button
+		fx:id="boutonAjouterTouchePerso"	
+		text="%ajouterTouche"
+		styleClass="gros-bouton"
+		id="boutonAjouterTouchePerso">
+	</Button>
+
 
 </VBox>

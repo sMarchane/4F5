@@ -6,6 +6,7 @@ import ca.ntro.app.messages.MessageRegistrar;
 import ca.ntro.app.models.ModelRegistrar;
 import dorsal.DorsalLightCycles;
 import frontal.FrontalLightCycles;
+import messages.MsgAjouterTouchePerso;
 import modeles.ModeleTouche;
 import modeles.valeurs.Touches;
 
@@ -30,7 +31,7 @@ public class ClientLightCycles implements NtroClientFx {
 
 	@Override
 	public void registerMessages(MessageRegistrar registrar) {
-		
+		registrar.registerMessage(MsgAjouterTouchePerso.class);
 		
 	}
 
