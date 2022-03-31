@@ -8,9 +8,12 @@ import ca.ntro.app.NtroApp;
 import ca.ntro.app.views.ViewFx;
 import ca.ntro.core.initialization.Ntro;
 import frontal.evenements.EvtAfficherFileAttente;
+import frontal.vues.fragments.FragmentPageTouche;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import messages.MsgAjouterTouchePerso;
 import modeles.ModeleTouche;
 import modeles.valeurs.Touches;
@@ -18,39 +21,43 @@ import modeles.valeurs.Touches;
 
 public class VueInterieur extends ViewFx{
 
-	@FXML
-	private Button boutonFileAttente;
 
+	@FXML
+	private VBox conteneurRendezVous;
+	
 	@FXML
 	private Button  boutonAjouterTouchePerso;
 
-	@FXML
-	private Label labelMessage;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		Ntro.assertNotNull("boutonFileAttente", boutonFileAttente);
 		
 		
-		installerEvtAfficherFileAttente();
 		
 		Ntro.assertNotNull("boutonAjouterTouchePerso", boutonAjouterTouchePerso);
 		installerMsgAjouterTouchePerso();
 		
-		Ntro.assertNotNull("labelMessage", labelMessage);
-	}
-	private void installerEvtAfficherFileAttente() {
-		
-		EvtAfficherFileAttente evtNtro = NtroApp.newEvent(EvtAfficherFileAttente.class);
-		
-		boutonFileAttente.setOnAction(evtFx -> {
-			
-			//System.out.println("[VueFileAttente] clic: " + evtFx.getEventType());
-			
-			evtNtro.trigger();
-		});
 	}
 	
+	public void viderListeTouche() {
+		conteneurRendezVous.getChildren().clear();
+	}
+	
+	private Pane petitEspaceVertical() {
+		
+		Pane petitEspaceVertical = new Pane();
+		
+		petitEspaceVertical.getStyleClass().add("petit-espace-vertical");
+		
+		return petitEspaceVertical;
+		
+	}
+	
+	public void ajouterRendezVous(FragmentPageTouche fragmentPageTouche) {
+		conteneurRendezVous.getChildren().add(fragmentPageTouche.rootNode());
+		
+		conteneurRendezVous.getChildren().add(petitEspaceVertical());
+	}
 	private void installerMsgAjouterTouchePerso() {
 		MsgAjouterTouchePerso msgAjouterTouchePerso = NtroApp.newMessage(MsgAjouterTouchePerso.class);
 		
@@ -77,7 +84,4 @@ public class VueInterieur extends ViewFx{
 		return Ntro.random().choice(choixDesPseudo);
 	}
 	
-	public void afficherMessage(String message) {
-		labelMessage.setText(message);
-	}
 }

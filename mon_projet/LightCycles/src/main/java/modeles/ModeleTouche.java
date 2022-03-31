@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.models.Model;
 import ca.ntro.app.models.Value;
 import frontal.vues.VueInterieur;
+import frontal.vues.fragments.FragmentPageTouche;
 import modeles.valeurs.Touches;
 
 public class ModeleTouche implements Model{
@@ -58,8 +60,17 @@ public class ModeleTouche implements Model{
 	}
 	
 	
-	public void afficherSur(VueInterieur vueInterieur) {
-		vueInterieur.afficherMessage(this.toString());
+	public void afficherSur(VueInterieur vueInterieur, ViewLoader<FragmentPageTouche> viewLoaderPageTouche) {
+		
+		vueInterieur.viderListeTouche();
+		
+		for(Touches touches : lesTouchesPerso) {
+			FragmentPageTouche fragmentTouche = touches.creerFragment(viewLoaderPageTouche);
+			
+			touches.afficherSur(fragmentTouche);
+			
+			vueInterieur.ajouterRendezVous(fragmentTouche);
+		}
 	}
 	
 	@Override

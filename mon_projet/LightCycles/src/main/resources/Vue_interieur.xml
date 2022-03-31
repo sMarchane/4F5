@@ -5,36 +5,26 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ScrollPane?>
+
+
 
 <VBox xmlns:fx="http://javafx.com/fxml"
 	fx:controller="frontal.vues.VueInterieur"
 	styleClass="conteneur"
 	id="vue-interieur">	
 
-	<Button text="%ouvrirRetour"
-	styleClass="gros-bouton"
-	id="bouton-retour">
-	</Button>
+
+	<Pane styleClass="petit-espace-vertical"/>
+
 
 	<Text
 		text="%ParametreTouches"
 		styleClass="titre-page"
 		id="titre">
 	</Text>
-
-
-	<ImageView>
-		<image>
-			<Image url="@logo.jpg"/>
-		</image>
-	</ImageView>
-
-	<Button
-		fx:id="boutonFileAttente"
-		text="%fileAttente"
-		styleClass="gros-bouton"
-		id="boutonFileAttente">
-	</Button>
 
 	<Button
 		fx:id="boutonAjouterTouchePerso"	
@@ -43,11 +33,26 @@
 		id="boutonAjouterTouchePerso">
 	</Button>
 
-	<Label
-		fx:id="labelMessage"
-		styleClass="texte"
-		id="label-message"
-		text="[labelMessage]">
-	</Label>
+	<Pane VBox.vgrow="ALWAYS" styleClass="grand-espace-vertical"/>
+
+	<Pane styleClass="grand-espace-vertical"/>
+
+	<HBox styleClass="conteneur,conteneur-parent">
+
+		<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
+
+		<ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true">
+			<content>
+				<VBox HBox.hgrow="ALWAYS" styleClass="conteneur" fx:id="conteneurRendezVous" id="conteneur-rendez-vous">
+				</VBox>
+			</content>
+		</ScrollPane>
+
+		<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
+
+	</HBox>
+
+	<Pane VBox.vgrow="ALWAYS" styleClass="grand-espace-vertical"/>
+	
 
 </VBox>

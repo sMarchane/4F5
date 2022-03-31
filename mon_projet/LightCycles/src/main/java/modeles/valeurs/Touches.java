@@ -1,6 +1,8 @@
 package modeles.valeurs;
 
+import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.models.Value;
+import frontal.vues.fragments.FragmentPageTouche;
 
 public class Touches implements Value{
 
@@ -81,6 +83,14 @@ public class Touches implements Value{
 
 	public void setPseudoJoueur(String pseudoJoueur) {
 		this.pseudoJoueur = pseudoJoueur;
+	}
+	public FragmentPageTouche creerFragment(ViewLoader<FragmentPageTouche> viewLoaderPageTouche) {
+		
+		return viewLoaderPageTouche.createView();
+	}
+	public void afficherSur(FragmentPageTouche fragmentTouche) {
+		
+		fragmentTouche.afficherNomPremierJoueur(pseudoJoueur);
 	}
 		
 }

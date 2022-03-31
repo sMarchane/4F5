@@ -10,6 +10,8 @@
 	id="vue-file-attente">
 	
 
+	
+
 	<Button 
 		fx:id="boutonMaPage"
 		text="%ouvrirPageTouche"
@@ -17,5 +19,5 @@
 		id="bouton-ma-page">
 	</Button>
 
-
+	
 </VBox>

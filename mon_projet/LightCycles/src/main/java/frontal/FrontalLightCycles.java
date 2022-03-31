@@ -15,6 +15,7 @@ import frontal.taches.Navigation;
 import frontal.vues.VueFileAttente;
 import frontal.vues.VueInterieur;
 import frontal.vues.VueRacine;
+import frontal.vues.fragments.FragmentPageTouche;
 
 public class FrontalLightCycles implements FrontendFx{
 
@@ -57,6 +58,8 @@ public class FrontalLightCycles implements FrontendFx{
 		
 		registrar.registerDefaultResources("/chaines_fr.properties");
 		registrar.registerResources(NtroApp.locale("en"), "/chaines_en.properties");
+		
+		registrar.registerView(FragmentPageTouche.class, "/fragments/page_touche.xml");
 	}
 
 }
