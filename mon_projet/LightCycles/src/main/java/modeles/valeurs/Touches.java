@@ -17,9 +17,9 @@ public class Touches implements Value{
 	public Touches() {
 		
 	}
-	public Touches(String idTouche, String pseudoPremierJoueur) {
+	public Touches(String idTouche, String toucheFront) {
 		setIdTouchePerso(idTouche);
-		setPseudoJoueur(pseudoPremierJoueur);
+		setToucheFront(toucheFront);
 			
 	}
 	
@@ -90,7 +90,7 @@ public class Touches implements Value{
 	}
 	public void afficherSur(FragmentPageTouche fragmentTouche) {
 		
-		fragmentTouche.afficherNomPremierJoueur(pseudoJoueur);
+		fragmentTouche.afficherNomPremierJoueur(toucheFront);
 	}
 		
 }

@@ -17,14 +17,14 @@ public class FragmentPageTouche extends ViewFx{
 	private Button boutonOuvrirFileAttente;
 	
 	@FXML
-	private Label labelNomPremierJoueur;
+	private Label labelNomTouche;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		
 		Ntro.assertNotNull("boutonOuvrirFileAttente", boutonOuvrirFileAttente);
-		Ntro.assertNotNull("labelNomPremierJoueur", labelNomPremierJoueur);
+		Ntro.assertNotNull("labelNomPremierJoueur", labelNomTouche);
 		
 		installerEvtAfficherVueInterieur();
 		
@@ -41,7 +41,7 @@ public class FragmentPageTouche extends ViewFx{
 		
 	}
 	
-	public void afficherNomPremierJoueur(String nomPremierJoueur) {
-		labelNomPremierJoueur.setText(nomPremierJoueur);
+	public void afficherNomPremierJoueur(String nomTouche) {
+		labelNomTouche.setText(nomTouche);
 	}
 }

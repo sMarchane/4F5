@@ -5,22 +5,25 @@ import modeles.ModeleTouche;
 
 public class MsgAjouterTouchePerso extends MessageNtro{
 
-	private String pseudoPremierJoueur;
+	private String toucheFront;
 	
 	public MsgAjouterTouchePerso() {
 		
 	}
 
-	public String getPseudoPremierJoueur() {
-		return pseudoPremierJoueur;
+	
+	public String getToucheFront() {
+		return toucheFront;
 	}
 
-	public void setPseudoPremierJoueur(String pseudoPremierJoueur) {
-		this.pseudoPremierJoueur = pseudoPremierJoueur;
+
+	public void setToucheFront(String toucheFront) {
+		this.toucheFront = toucheFront;
 	}
-	
+
+
 	public void ajouterA(ModeleTouche touche) {
 		
-		touche.ajouterTouchePerso(pseudoPremierJoueur);
+		touche.ajouterTouchePerso(toucheFront);
 	}
 }

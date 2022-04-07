@@ -16,8 +16,8 @@
     <FlexBoxTouche HBox.hgrow="ALWAYS" styleClass="conteneur,page-touche">
 
         <Label
-            fx:id="labelNomPremierJoueur"
-            styleClass="label-nom-joueur">
+            fx:id="labelNomTouche"
+            styleClass="label-nom-touche">
         </Label>
 
         <Pane HBox.hgrow="ALWAYS" minHeight="20"/>

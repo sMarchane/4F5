@@ -64,7 +64,7 @@ public class VueInterieur extends ViewFx{
 		boutonAjouterTouchePerso.setOnAction(evtFx -> {
 			
 			
-			msgAjouterTouchePerso.setPseudoPremierJoueur(nomAleatoire());
+			msgAjouterTouchePerso.setToucheFront(nomAleatoire());
 			msgAjouterTouchePerso.send();
 		});
 		
@@ -73,14 +73,9 @@ public class VueInterieur extends ViewFx{
 	
 	
 	private String nomAleatoire() {
-		List<String> choixDesPseudo = List.of("Srocma17",
-											  "GamingBoy2002",
-											  "Gregpower",
-											  "Drazox1999",
-											  "SavageBlood",
-											  "Kruxx",
-											  "Zeyrox123",
-											  "Raven2020");
+		List<String> choixDesPseudo = List.of("Touche spécialité rapiditié",
+											  "Touche spécialité efficacité",
+											  "Touche spécialité précision");
 		return Ntro.random().choice(choixDesPseudo);
 	}
 	
