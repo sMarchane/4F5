@@ -21,9 +21,9 @@ public class Navigation {
 				
 				
 				  afficherVueInterieur(subTasks);
-				  creerVueFileAttente(subTasks);
+				  
 				  afficherVueFileAttente(subTasks);
-				 
+				  
 				 
 			});
 	}
@@ -44,7 +44,7 @@ public class Navigation {
 	private static void afficherVueFileAttente(FrontendTasks tasks) {
 		tasks.task("afficherVueFileAttente")
 		
-			.waitsFor(created(VueFileAttente.class))
+			
 			
 			
 			.waitsFor(event(EvtAfficherFileAttente.class))

@@ -55,4 +55,11 @@
 	<Pane VBox.vgrow="ALWAYS" styleClass="grand-espace-vertical"/>
 	
 
+	<Button 
+		fx:id="boutonMaPage"
+		text="%ouvrirPageTouche"
+		styleClass="gros-bouton"
+		id="bouton-ma-page">
+	</Button>
+
 </VBox>

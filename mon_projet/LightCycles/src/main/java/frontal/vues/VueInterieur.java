@@ -21,6 +21,8 @@ import modeles.valeurs.Touches;
 
 public class VueInterieur extends ViewFx{
 
+	@FXML
+	private Button boutonMaPage;
 
 	@FXML
 	private VBox conteneurRendezVous;
@@ -36,9 +38,17 @@ public class VueInterieur extends ViewFx{
 		
 		Ntro.assertNotNull("boutonAjouterTouchePerso", boutonAjouterTouchePerso);
 		installerMsgAjouterTouchePerso();
+		installerEvtAfficherFileAttente();
 		
 	}
-	
+	private void installerEvtAfficherFileAttente() {
+		EvtAfficherFileAttente evtNtro = NtroApp.newEvent(EvtAfficherFileAttente.class);
+		
+		boutonMaPage.setOnAction(evtFx -> {
+			
+			evtNtro.trigger();
+		});
+	}
 	public void viderListeTouche() {
 		conteneurRendezVous.getChildren().clear();
 	}

@@ -58,8 +58,25 @@ public class Initialisation {
 				
 				installerVueRacine(subTasks);
 				installerVueInterieur(subTasks);
+				
+				creerVueFileAttente(subTasks);
+				
 			});
 		
+	}		
+	private static void creerVueFileAttente(FrontendTasks tasks) {
+		tasks.task(create(VueFileAttente.class))
+		
+			.waitsFor(viewLoader(VueFileAttente.class))
+			
+			.thenExecutesAndReturnsValue(inputs -> {
+				
+				ViewLoader<VueFileAttente> viewLoader = inputs.get(viewLoader(VueFileAttente.class));
+				
+				VueFileAttente vueFileAttente = viewLoader.createView();
+				
+				return vueFileAttente;
+			});
 	}	
 	
 	private static void afficherFenetre(FrontendTasks tasks) {

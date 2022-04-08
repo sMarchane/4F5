@@ -8,11 +8,16 @@ import ca.ntro.app.views.ViewFx;
 import ca.ntro.core.initialization.Ntro;
 import frontal.evenements.EvtAfficherFileAttente;
 import frontal.evenements.EvtAfficherVueInterieur;
+import frontal.vues.controles.CanvasPartie;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import modeles.monde_LightCycles2d.MondeLightCycles2d;
 
 public class VueFileAttente extends ViewFx{
 
+	@FXML
+	private CanvasPartie canvasPartie;
+	
 	@FXML
 	private Button boutonMaPage;
 
@@ -21,8 +26,9 @@ public class VueFileAttente extends ViewFx{
 	public void initialize(URL location, ResourceBundle resources) {
 		Ntro.assertNotNull("boutonMaPage", boutonMaPage);
 		installerEvtAfficherVueInterieur();
+		Ntro.assertNotNull("canvasPartie", canvasPartie);
 		
-		
+		initialiserCanvasPartie();
 	}
 
 	private void installerEvtAfficherVueInterieur() {
@@ -32,12 +38,34 @@ public class VueFileAttente extends ViewFx{
 		
 		boutonMaPage.setOnAction(evtFx -> {
 			
-			//System.out.println("[VueFileAttente] clic:" + evtFx.getEventType());
+			
 			
 			evtNtro.trigger();
 			
 			
 		});
+	}
+	private void initialiserCanvasPartie() {
+		
+		canvasPartie.setWorldWidth(MondeLightCycles2d.LARGEUR_MONDE);
+		canvasPartie.setWorldHeight(MondeLightCycles2d.HAUTEUR_MONDE);
+		
+		
+	}
+
+	public void viderCanvas() {
+		canvasPartie.clearCanvas();
+		
+	}
+
+	public void afficherImagesParSeconde(String fps) {
+		canvasPartie.displayFps(fps);
+		
+	}
+
+	public void afficherLightCycles2d(MondeLightCycles2d mondeLightCycles2d) {
+		canvasPartie.displayWorld2d(mondeLightCycles2d);
+		
 	}
 	
 }

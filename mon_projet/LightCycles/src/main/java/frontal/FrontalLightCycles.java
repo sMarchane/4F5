@@ -9,12 +9,14 @@ import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import frontal.evenements.EvtAfficherFileAttente;
 import frontal.evenements.EvtAfficherVueInterieur;
+import frontal.taches.AfficherPartie;
 import frontal.taches.AfficherVueInterieur;
 import frontal.taches.Initialisation;
 import frontal.taches.Navigation;
 import frontal.vues.VueFileAttente;
 import frontal.vues.VueInterieur;
 import frontal.vues.VueRacine;
+import frontal.vues.donnees.DonneesVuePartie;
 import frontal.vues.fragments.FragmentPageTouche;
 
 public class FrontalLightCycles implements FrontendFx{
@@ -27,6 +29,8 @@ public class FrontalLightCycles implements FrontendFx{
 		Navigation.creerTaches(tasks);
 		
 		AfficherVueInterieur.creerTaches(tasks);
+		
+		AfficherPartie.creerTaches(tasks);
 	}
 
 	@Override
@@ -60,6 +64,8 @@ public class FrontalLightCycles implements FrontendFx{
 		registrar.registerResources(NtroApp.locale("en"), "/chaines_en.properties");
 		
 		registrar.registerView(FragmentPageTouche.class, "/fragments/page_touche.xml");
+		
+		registrar.registerViewData(DonneesVuePartie.class);
 	}
 
 }

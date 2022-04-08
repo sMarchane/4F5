@@ -26,6 +26,7 @@
 	
 }
 #vue-file-attente {
+	-fx-background-color: white;
 	-fx-border-color:darkblue;
 }
 
