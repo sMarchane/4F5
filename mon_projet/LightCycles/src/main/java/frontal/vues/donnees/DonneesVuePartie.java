@@ -2,7 +2,8 @@ package frontal.vues.donnees;
 
 import ca.ntro.app.frontend.ViewData;
 import ca.ntro.core.initialization.Ntro;
-import frontal.vues.VueFileAttente;
+import frontal.vues.VuePartie;
+import frontal.vues.VuePartie;
 import modeles.monde_LightCycles2d.MondeLightCycles2d;
 
 public class DonneesVuePartie implements ViewData{
@@ -19,7 +20,7 @@ public class DonneesVuePartie implements ViewData{
 	
 	
 	
-	public void afficherSur(VueFileAttente vuePartie) {
+	public void afficherSur(VuePartie vuePartie) {
 		
 		calculerFpsNecessaire();
 		

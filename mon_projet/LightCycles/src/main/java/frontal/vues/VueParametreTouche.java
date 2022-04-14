@@ -8,7 +8,7 @@ import LightCycles.Session;
 import ca.ntro.app.NtroApp;
 import ca.ntro.app.views.ViewFx;
 import ca.ntro.core.initialization.Ntro;
-import frontal.evenements.EvtAfficherFileAttente;
+import frontal.evenements.EvtAfficherVuePartie;
 import frontal.vues.fragments.FragmentPageTouche;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -20,10 +20,10 @@ import modeles.ModeleTouche;
 import modeles.valeurs.Touches;
 
 
-public class VueInterieur extends ViewFx{
+public class VueParametreTouche extends ViewFx{
 
 	@FXML
-	private Button boutonMaPage;
+	private Button boutonJeu;
 
 	@FXML
 	private VBox conteneurRendezVous;
@@ -43,9 +43,9 @@ public class VueInterieur extends ViewFx{
 		
 	}
 	private void installerEvtAfficherFileAttente() {
-		EvtAfficherFileAttente evtNtro = NtroApp.newEvent(EvtAfficherFileAttente.class);
+		EvtAfficherVuePartie evtNtro = NtroApp.newEvent(EvtAfficherVuePartie.class);
 		
-		boutonMaPage.setOnAction(evtFx -> {
+		boutonJeu.setOnAction(evtFx -> {
 			
 			evtNtro.trigger();
 		});

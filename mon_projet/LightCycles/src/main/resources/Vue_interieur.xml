@@ -12,7 +12,7 @@
 
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-	fx:controller="frontal.vues.VueInterieur"
+	fx:controller="frontal.vues.VueParametreTouche"
 	styleClass="conteneur"
 	id="vue-interieur">	
 
@@ -56,8 +56,8 @@
 	
 
 	<Button 
-		fx:id="boutonMaPage"
-		text="%ouvrirPageTouche"
+		fx:id="boutonJeu"
+		text="%ouvrirJeu"
 		styleClass="gros-bouton"
 		id="bouton-ma-page">
 	</Button>

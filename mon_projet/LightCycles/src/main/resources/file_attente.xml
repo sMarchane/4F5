@@ -10,7 +10,7 @@
 <?import frontal.vues.controles.CanvasPartie?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-	fx:controller="frontal.vues.VueFileAttente"
+	fx:controller="frontal.vues.VuePartie"
 	styleClass="conteneur"
 	id="vue-file-attente">
 

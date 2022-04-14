@@ -6,14 +6,13 @@ import java.util.ResourceBundle;
 import ca.ntro.app.NtroApp;
 import ca.ntro.app.views.ViewFx;
 import ca.ntro.core.initialization.Ntro;
-import frontal.evenements.EvtAfficherFileAttente;
-import frontal.evenements.EvtAfficherVueInterieur;
+import frontal.evenements.EvtAfficherVueParametreTouche;
 import frontal.vues.controles.CanvasPartie;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import modeles.monde_LightCycles2d.MondeLightCycles2d;
 
-public class VueFileAttente extends ViewFx{
+public class VuePartie extends ViewFx{
 
 	@FXML
 	private CanvasPartie canvasPartie;
@@ -34,7 +33,7 @@ public class VueFileAttente extends ViewFx{
 	private void installerEvtAfficherVueInterieur() {
 		
 		
-		EvtAfficherVueInterieur evtNtro = NtroApp.newEvent(EvtAfficherVueInterieur.class);
+		EvtAfficherVueParametreTouche evtNtro = NtroApp.newEvent(EvtAfficherVueParametreTouche.class);
 		
 		boutonMaPage.setOnAction(evtFx -> {
 			

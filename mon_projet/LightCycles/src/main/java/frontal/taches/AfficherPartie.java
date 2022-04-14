@@ -2,7 +2,8 @@ package frontal.taches;
 
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import ca.ntro.core.clock.Tick;
-import frontal.vues.VueFileAttente;
+import frontal.vues.VuePartie;
+import frontal.vues.VuePartie;
 import frontal.vues.donnees.DonneesVuePartie;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
 
@@ -34,11 +35,11 @@ public class AfficherPartie {
 			
 			DonneesVuePartie donneesVuePartie = inputs.get(created(DonneesVuePartie.class));
 			
-			VueFileAttente vuePartie = inputs.get(created(VueFileAttente.class));
+			VuePartie vuepartie = inputs.get(created(VuePartie.class));
 			
 			donneesVuePartie.reagirTempsQuiPasse(tick.elapsedTime());
 			
-			donneesVuePartie.afficherSur(vuePartie);
+			donneesVuePartie.afficherSur(vuepartie);
 		});
 
 		

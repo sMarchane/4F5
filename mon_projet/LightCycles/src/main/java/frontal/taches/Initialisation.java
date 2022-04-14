@@ -9,8 +9,9 @@ import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import frontal.vues.VueRacine;
-import frontal.vues.VueFileAttente;
-import frontal.vues.VueInterieur;
+import frontal.vues.VuePartie;
+import frontal.vues.VueParametreTouche;
+import frontal.vues.VuePartie;
 
 
 
@@ -65,15 +66,15 @@ public class Initialisation {
 		
 	}		
 	private static void creerVueFileAttente(FrontendTasks tasks) {
-		tasks.task(create(VueFileAttente.class))
+		tasks.task(create(VuePartie.class))
 		
-			.waitsFor(viewLoader(VueFileAttente.class))
+			.waitsFor(viewLoader(VuePartie.class))
 			
 			.thenExecutesAndReturnsValue(inputs -> {
 				
-				ViewLoader<VueFileAttente> viewLoader = inputs.get(viewLoader(VueFileAttente.class));
+				ViewLoader<VuePartie> viewLoader = inputs.get(viewLoader(VuePartie.class));
 				
-				VueFileAttente vueFileAttente = viewLoader.createView();
+				VuePartie vueFileAttente = viewLoader.createView();
 				
 				return vueFileAttente;
 			});
@@ -99,26 +100,26 @@ public class Initialisation {
 			.waitsFor(created(VueRacine.class))
 			
 			
-			.waitsFor(created(VueInterieur.class))
+			.waitsFor(created(VueParametreTouche.class))
 			
 			.thenExecutes(inputs ->{
 				
 				VueRacine vueRacine = inputs.get(created(VueRacine.class));
-				VueInterieur vueInterieur = inputs.get(created(VueInterieur.class));
+				VueParametreTouche vueInterieur = inputs.get(created(VueParametreTouche.class));
 				
 				vueRacine.afficherSousVue(vueInterieur);
 			});
 	}
 	private static void creerVueInterieur(FrontendTasks tasks) {
-		tasks.task(create(VueInterieur.class))
+		tasks.task(create(VueParametreTouche.class))
 		
-			.waitsFor(viewLoader(VueInterieur.class))
+			.waitsFor(viewLoader(VueParametreTouche.class))
 			
 			.thenExecutesAndReturnsValue(inputs -> {
 				
-				ViewLoader<VueInterieur> viewLoader = inputs.get(viewLoader(VueInterieur.class));
+				ViewLoader<VueParametreTouche> viewLoader = inputs.get(viewLoader(VueParametreTouche.class));
 				
-				VueInterieur vueInterieur = viewLoader.createView();
+				VueParametreTouche vueInterieur = viewLoader.createView();
 				
 				return vueInterieur;
 			});

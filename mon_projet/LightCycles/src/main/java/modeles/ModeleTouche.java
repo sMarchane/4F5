@@ -8,7 +8,7 @@ import java.util.List;
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.models.Model;
 import ca.ntro.app.models.Value;
-import frontal.vues.VueInterieur;
+import frontal.vues.VueParametreTouche;
 import frontal.vues.fragments.FragmentPageTouche;
 import modeles.valeurs.Touches;
 
@@ -60,7 +60,7 @@ public class ModeleTouche implements Model{
 	}
 	
 	
-	public void afficherSur(VueInterieur vueInterieur, ViewLoader<FragmentPageTouche> viewLoaderPageTouche) {
+	public void afficherSur(VueParametreTouche vueInterieur, ViewLoader<FragmentPageTouche> viewLoaderPageTouche) {
 		
 		vueInterieur.viderListeTouche();
 		

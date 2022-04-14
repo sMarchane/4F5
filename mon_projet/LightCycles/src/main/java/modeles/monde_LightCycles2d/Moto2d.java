@@ -2,11 +2,14 @@ package modeles.monde_LightCycles2d;
 
 import ca.ntro.core.initialization.Ntro;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.ArcType;
 
 public class Moto2d extends Objet2d{
 
+	
+	private Image image = new Image("/moto-9535.jpg");
 	
 	private static final double EPSILON = 1;
 	
@@ -18,7 +21,7 @@ public class Moto2d extends Objet2d{
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		gc.fillArc(getTopLeftX(), getTopLeftY(), getWidth(), getHeight(), 0, 360, ArcType.CHORD);
+		gc.drawImage(image, getTopLeftX(), getTopLeftY(), getWidth(), getHeight());
 		
 	}
 

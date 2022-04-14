@@ -6,7 +6,7 @@ import ca.ntro.app.tasks.backend.BackendTasks;
 import messages.MsgAjouterTouchePerso;
 import modeles.ModeleTouche;
 
-public class modifierVueInterieur {
+public class modifierVueParametreTouche {
 
 	public static void creerTaches(BackendTasks tasks) {
 		tasks.taskGroup("ModifierVueInterieur")
