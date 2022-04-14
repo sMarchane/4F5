@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import LightCycles.Session;
 import ca.ntro.app.NtroApp;
 import ca.ntro.app.views.ViewFx;
 import ca.ntro.core.initialization.Ntro;
@@ -74,7 +75,7 @@ public class VueInterieur extends ViewFx{
 		boutonAjouterTouchePerso.setOnAction(evtFx -> {
 			
 			
-			msgAjouterTouchePerso.setToucheFront(nomAleatoire());
+			msgAjouterTouchePerso.setToucheFront(Session.touche);
 			msgAjouterTouchePerso.send();
 		});
 		
@@ -83,9 +84,9 @@ public class VueInterieur extends ViewFx{
 	
 	
 	private String nomAleatoire() {
-		List<String> choixDesPseudo = List.of("Touche spécialité rapiditié",
-											  "Touche spécialité efficacité",
-											  "Touche spécialité précision");
+		List<String> choixDesPseudo = List.of("Touche specialite rapidite",
+											  "Touche specialite efficacite",
+											  "Touche specialite precision");
 		return Ntro.random().choice(choixDesPseudo);
 	}
 	

@@ -7,26 +7,17 @@ import ca.ntro.app.models.ModelRegistrar;
 import dorsal.DorsalLightCycles;
 import dorsal.DorsalLightCyclesDistant;
 import frontal.FrontalLightCycles;
-import modeles.enums.Cadran;
 
-public class ClientLightCycles implements NtroClientFx {
+public class LightCyclesLocal implements NtroClientFx {
 
 	public static void main(String[] args) {
-		
-		if(args.length > 0) {
-			Session.touche = args[0];
-		}
-		
-		if(args.length > 1) {
-			Session.cadran = Cadran.valueOf(args[1]);
-		}
-
 		NtroClientFx.launch(args);
+
 	}
 
 	@Override
 	public void registerBackend(BackendRegistrar registrar) {
-		registrar.registerBackend(new DorsalLightCyclesDistant());
+		registrar.registerBackend(new DorsalLightCycles());
 		
 		
 	}

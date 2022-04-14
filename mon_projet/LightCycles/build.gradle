@@ -47,6 +47,26 @@ def clientConfig = {
    jvmArgs('-Dsun.java2d.opengl=true')
 }
 
+def serverConfig = {
+    configure commonConfig
+    main = serverMainClass
+}
+
+def localConfig = {
+    configure commonConfig
+    main = localMainClass
+    jvmArgs('-Dsun.java2d.opengl=true')
+}
+
+task(local, dependsOn: 'classes', type: JavaExec) {
+     configure localConfig
+     jvmArgs('-Duser.language=fr')
+}
+task(localEn, dependsOn: 'classes', type: JavaExec) {
+     configure localConfig
+     jvmArgs('-Duser.language=en')
+}
+
 task(client, dependsOn: 'classes', type: JavaExec) {
    configure clientConfig
    jvmArgs('-Duser.language=fr')
@@ -60,4 +80,23 @@ task(clientFr, dependsOn: 'classes', type: JavaExec) {
 task(clientEn, dependsOn: 'classes', type: JavaExec) {
    configure clientConfig
    jvmArgs('-Duser.language=en')
+}
+
+task(serveur, dependsOn: 'classes', type: JavaExec){
+    configure serverConfig
+}
+
+task(rapidite, dependsOn: 'classes', type: JavaExec) {
+   configure clientConfig
+   args("Touche specialite rapidite","GAUCHE")
+}
+
+task(efficacite, dependsOn: 'classes', type: JavaExec) {
+   configure clientConfig
+   args("Touche specialite efficacite", "DROITE")
+}
+
+task(precision, dependsOn: 'classes', type: JavaExec) {
+   configure clientConfig
+   args("Touche specialite precision","AUCUN")
 }
