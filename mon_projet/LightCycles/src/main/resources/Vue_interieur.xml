@@ -62,4 +62,11 @@
 		id="bouton-ma-page">
 	</Button>
 
+
+	<Button 
+		fx:id="boutonMaPage"
+		text="%ouvrirPage"
+		styleClass="gros-bouton"
+		id="boutonMaPage">
+	</Button>
 </VBox>

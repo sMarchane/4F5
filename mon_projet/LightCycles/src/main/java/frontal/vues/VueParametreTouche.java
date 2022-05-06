@@ -8,6 +8,7 @@ import LightCycles.Session;
 import ca.ntro.app.NtroApp;
 import ca.ntro.app.views.ViewFx;
 import ca.ntro.core.initialization.Ntro;
+import frontal.evenements.EvtAfficherVueAMoi;
 import frontal.evenements.EvtAfficherVuePartie;
 import frontal.vues.fragments.FragmentPageTouche;
 import javafx.fxml.FXML;
@@ -30,6 +31,10 @@ public class VueParametreTouche extends ViewFx{
 	
 	@FXML
 	private Button  boutonAjouterTouchePerso;
+	
+	@FXML
+	private Button  boutonMaPage;
+	
 
 	
 	@Override
@@ -40,7 +45,7 @@ public class VueParametreTouche extends ViewFx{
 		Ntro.assertNotNull("boutonAjouterTouchePerso", boutonAjouterTouchePerso);
 		installerMsgAjouterTouchePerso();
 		installerEvtAfficherFileAttente();
-		
+		installerEvtAfficherPageAMoi();
 	}
 	private void installerEvtAfficherFileAttente() {
 		EvtAfficherVuePartie evtNtro = NtroApp.newEvent(EvtAfficherVuePartie.class);
@@ -50,6 +55,16 @@ public class VueParametreTouche extends ViewFx{
 			evtNtro.trigger();
 		});
 	}
+	
+	private void installerEvtAfficherPageAMoi() {
+		EvtAfficherVueAMoi evtNtro = NtroApp.newEvent(EvtAfficherVueAMoi.class);
+		
+		boutonMaPage.setOnAction(evtFx -> {
+			
+			evtNtro.trigger();
+		});
+	}
+
 	public void viderListeTouche() {
 		conteneurRendezVous.getChildren().clear();
 	}

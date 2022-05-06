@@ -39,7 +39,7 @@ public class AfficherVueParametreTouche {
 				ModeleTouche ancienFile = touche.previousValue();
 				ModeleTouche fileCourante = touche.currentValue();
 				
-				touche.currentValue().afficherSur(vueInterieur, viewLoaderPageTouche);
+				//touche.currentValue().afficherSur(vueInterieur, viewLoaderPageTouche);
 			});
 	}
 	

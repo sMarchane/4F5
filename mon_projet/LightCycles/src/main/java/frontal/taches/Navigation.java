@@ -4,9 +4,11 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
 
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
+import frontal.evenements.EvtAfficherVueAMoi;
 import frontal.evenements.EvtAfficherVueParametreTouche;
 import frontal.evenements.EvtAfficherVuePartie;
 import frontal.vues.VuePartie;
+import frontal.vues.VueAMoi;
 import frontal.vues.VueParametreTouche;
 import frontal.vues.VuePartie;
 import frontal.vues.VueRacine;
@@ -25,6 +27,7 @@ public class Navigation {
 				  
 				  afficherVueFileAttente(subTasks);
 				  
+				  afficherVueAMoi(subTasks);
 				 
 			});
 	}
@@ -70,6 +73,23 @@ public class Navigation {
 				VueParametreTouche vueInterieur = inputs.get(created(VueParametreTouche.class));
 				
 				vueRacine.afficherSousVue(vueInterieur);
+			});
+	}
+
+	private static void afficherVueAMoi(FrontendTasks tasks) {
+		tasks.task("afficherVueAMoi")
+		
+			
+			
+			
+			.waitsFor(event(EvtAfficherVueAMoi.class))
+			
+			.thenExecutes(inputs ->{
+				
+				VueRacine vueRacine = inputs.get(created(VueRacine.class));
+				VueAMoi vueAMoi = inputs.get(created(VueAMoi.class));
+				
+				vueRacine.afficherSousVue(vueAMoi);
 			});
 	}
 

@@ -5,12 +5,23 @@ import modeles.ModeleTouche;
 
 public class MsgAjouterTouchePerso extends MessageNtro{
 
+	private String pseudo;
+	
 	private String toucheFront;
+	
 	
 	public MsgAjouterTouchePerso() {
 		
 	}
 
+	public String getPseudo() {
+		return pseudo;
+	}
+
+
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
+	}
 	
 	public String getToucheFront() {
 		return toucheFront;
@@ -24,6 +35,8 @@ public class MsgAjouterTouchePerso extends MessageNtro{
 
 	public void ajouterA(ModeleTouche touche) {
 		
-		touche.ajouterTouchePerso(toucheFront);
+		touche.ajouterTouchePerso(pseudo);
 	}
+
+
 }

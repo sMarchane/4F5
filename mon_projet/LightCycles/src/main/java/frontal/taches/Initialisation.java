@@ -10,8 +10,8 @@ import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import frontal.vues.VueRacine;
 import frontal.vues.VuePartie;
+import frontal.vues.VueAMoi;
 import frontal.vues.VueParametreTouche;
-import frontal.vues.VuePartie;
 
 
 
@@ -61,6 +61,7 @@ public class Initialisation {
 				installerVueInterieur(subTasks);
 				
 				creerVueFileAttente(subTasks);
+				creerVueAMoi(subTasks);
 				
 			});
 		
@@ -124,6 +125,22 @@ public class Initialisation {
 				return vueInterieur;
 			});
 	}
+	
+	private static void creerVueAMoi(FrontendTasks tasks) {
+		tasks.task(create(VueAMoi.class))
+		
+			.waitsFor(viewLoader(VueAMoi.class))
+			
+			.thenExecutesAndReturnsValue(inputs -> {
+				
+				ViewLoader<VueAMoi> viewLoader = inputs.get(viewLoader(VueAMoi.class));
+				
+				VueAMoi vueAMoi = viewLoader.createView();
+				
+				return vueAMoi;
+			});
+	}	
+
 	
 	
 }

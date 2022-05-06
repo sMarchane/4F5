@@ -7,13 +7,16 @@ import ca.ntro.app.frontend.ViewRegistrarFx;
 import ca.ntro.app.frontend.events.EventRegistrar;
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
+import frontal.evenements.EvtAfficherVueAMoi;
 import frontal.evenements.EvtAfficherVueParametreTouche;
 import frontal.evenements.EvtAfficherVuePartie;
 import frontal.taches.AfficherPartie;
+import frontal.taches.AfficherVueAMoi;
 import frontal.taches.AfficherVueParametreTouche;
 import frontal.taches.Initialisation;
 import frontal.taches.Navigation;
 import frontal.vues.VuePartie;
+import frontal.vues.VueAMoi;
 import frontal.vues.VueParametreTouche;
 import frontal.vues.VuePartie;
 import frontal.vues.VueRacine;
@@ -32,6 +35,8 @@ public class FrontalLightCycles implements FrontendFx{
 		AfficherVueParametreTouche.creerTaches(tasks);
 		
 		AfficherPartie.creerTaches(tasks);
+		
+		AfficherVueAMoi.creerTaches(tasks);
 	}
 
 	@Override
@@ -46,6 +51,7 @@ public class FrontalLightCycles implements FrontendFx{
 		
 		registrar.registerEvent(EvtAfficherVueParametreTouche.class);
 		registrar.registerEvent(EvtAfficherVuePartie.class);
+		registrar.registerEvent(EvtAfficherVueAMoi.class);
 		
 	}
 
@@ -59,6 +65,8 @@ public class FrontalLightCycles implements FrontendFx{
 		
 		registrar.registerView(VuePartie.class, "/file_attente.xml");
 		
+		registrar.registerView(VueAMoi.class, "/VueAMoi.xml");
+		
 		registrar.registerStylesheet("/LightCycles.css");
 		
 		registrar.registerDefaultResources("/chaines_fr.properties");
@@ -67,6 +75,7 @@ public class FrontalLightCycles implements FrontendFx{
 		registrar.registerView(FragmentPageTouche.class, "/fragments/page_touche.xml");
 		
 		registrar.registerViewData(DonneesVuePartie.class);
+		
 	}
 
 }

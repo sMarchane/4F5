@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import frontal.vues.controles.CanvasPartie?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+	fx:controller="frontal.vues.VueAMoi"
+	styleClass="conteneur"
+	id="vue-a-moi">
+
+
+	<Label text="Choisissez vos touches">
+	</Label>	
+
+	<Button 
+		fx:id="boutonRetour"
+		text="%ouvrirPageFileAttente"
+		styleClass="gros-bouton"
+		id="boutonRetour">
+	</Button>
+
+	<Label text="Pseudo : ">
+	</Label>
+
+	<TextField 
+		id="Pseudo" 
+		fx:id="Pseudo">
+	</TextField>
+
+
+	<Label text="Touche Avant : ">
+	</Label>	
+
+	<TextField 
+		id="Front" 
+		fx:id="Front">
+	</TextField>
+
+	<Label text="Touche Gauche : ">
+	</Label>	
+
+	<TextField 
+		id="Gauche" 
+		fx:id="Gauche">
+	</TextField>
+
+	<Label text="Touche Droite : ">
+	</Label>	
+
+	<TextField 
+		id="Droite" 
+		fx:id="Droite">
+	</TextField>
+
+	<Label text="Touche Boost : ">
+	</Label>	
+
+	<TextField 
+		id="Boost" 
+		fx:id="Boost">
+	</TextField>
+	
+
+	<Button 
+		fx:id="boutonEnregistrer"
+		text="%ouvrirEnregistrer"
+		styleClass="gros-bouton"
+		id="boutonEnregistrer">
+	</Button>
+
+
+	<Label
+		fx:id="labelMessage"
+		styleClass="texte"
+		id="label-message"
+		text="[labelMessasge]">
+		
+
+
+	</Label>
+
+
+
+
+
+
+
+
+</VBox>
